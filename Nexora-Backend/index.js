@@ -15,11 +15,11 @@ app.use(cors())
 
 app.use('/api', router)
 
-app.listen(port, (err) => {
-    if (err) {
-        console.log(err);
-        return;
-    }
-    console.log("Server Started")
-    console.log(`http://localhost:` + port);
-})
+if (process.env.NODE_ENV !== "production") {
+    app.listen(port, () => {
+        console.log("Server Started")
+        console.log(`http://localhost:${port}`);
+    })
+}
+
+export default app;
