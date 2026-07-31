@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Nexora E-Commerce Platform — Industry Report</title>
+  <style>
+    @page { size: A4; margin: 14mm; }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: #1c2733; font-family: Aptos, Calibri, Arial, sans-serif; font-size: 10.2pt; line-height: 1.42; }
+    .page { min-height: 267mm; page-break-after: always; position: relative; padding: 4mm 3mm 12mm; overflow: hidden; }
+    .page:last-child { page-break-after: auto; }
+    .cover { background: linear-gradient(135deg, #102a43 0%, #243b53 56%, #17a2b8 150%); color: #fff; padding: 25mm 17mm; }
+    .cover h1 { font-size: 35pt; line-height: 1.05; margin: 15mm 0 5mm; letter-spacing: -.7pt; }
+    .cover h2 { font-size: 15pt; font-weight: 400; margin: 0 0 20mm; color: #d9f5f9; }
+    .badge { display: inline-block; padding: 3px 9px; color: #075764; background: #d8f3f5; border-radius: 16px; font-weight: 700; font-size: 8.5pt; letter-spacing: .4pt; text-transform: uppercase; }
+    .cover-grid { display: grid; grid-template-columns: 1.35fr .65fr; gap: 11mm; align-items: end; margin-top: 24mm; }
+    .cover-card { padding: 6mm; border: 1px solid rgba(255,255,255,.28); background: rgba(255,255,255,.10); border-radius: 5mm; }
+    .cover-card strong { display: block; font-size: 20pt; }
+    h1 { margin: 0 0 3mm; color: #102a43; font-size: 23pt; line-height: 1.12; }
+    h2 { margin: 5mm 0 2mm; color: #102a43; font-size: 14pt; }
+    h3 { margin: 3mm 0 1mm; color: #0a6d7b; font-size: 11pt; }
+    p { margin: 0 0 2.5mm; }
+    .kicker { color: #0b7d8c; font-size: 8.5pt; font-weight: 800; letter-spacing: .8pt; text-transform: uppercase; }
+    .rule { width: 36mm; height: 1.2mm; margin: 3mm 0 6mm; background: #21a6b8; }
+    .lead { font-size: 12pt; color: #3c4c5b; }
+    .two { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+    .three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+    .card { padding: 4mm; border: 1px solid #d7e2e8; border-radius: 3mm; background: #fbfdfe; }
+    .card p:last-child, .note p:last-child { margin-bottom: 0; }
+    .metric { padding: 4mm; color: #fff; background: #102a43; border-radius: 3mm; }
+    .metric strong { display: block; color: #78e0e9; font-size: 18pt; }
+    .figure { margin: 5mm 0; padding: 4mm; border: 1px solid #cbdce3; background: #f7fbfc; border-radius: 3mm; }
+    .figure img { width: 100%; max-height: 72mm; object-fit: contain; display: block; }
+    .caption { margin-top: 2mm; color: #596b78; font-size: 8.6pt; }
+    ul { margin: 1.5mm 0 2.5mm; padding-left: 5mm; }
+    li { margin-bottom: 1.1mm; }
+    table { width: 100%; border-collapse: collapse; margin: 3mm 0; font-size: 9.1pt; }
+    th { color: #fff; background: #102a43; text-align: left; }
+    th, td { padding: 2.2mm; border: 1px solid #cedde3; vertical-align: top; }
+    tr:nth-child(even) td { background: #f7fbfc; }
+    .note { padding: 3.5mm 4mm; border-left: 1.5mm solid #17a2b8; background: #e9f8f9; }
+    .code { padding: 3.5mm; color: #d9f5f9; background: #102a43; border-radius: 2mm; font-family: Consolas, monospace; font-size: 8.5pt; white-space: pre-line; }
+    .footer { position: absolute; bottom: 2mm; left: 3mm; right: 3mm; display: flex; justify-content: space-between; color: #718390; font-size: 8pt; }
+    .timeline { display: grid; grid-template-columns: 22mm 1fr; gap: 0; margin-top: 4mm; }
+    .timeline b { padding: 3mm; color: #fff; background: #0b7d8c; text-align: center; }
+    .timeline div { padding: 3mm 4mm; border: 1px solid #d7e2e8; }
+    .small { font-size: 8.7pt; }
+  </style>
+</head>
+<body>
+  <section class="page cover">
+    <span class="badge">Industry Project Report</span>
+    <h1>Nexora<br>E-Commerce Platform</h1>
+    <h2>Beginner-friendly full-stack application report</h2>
+    <p>This document explains how Nexora is structured, how a shopper and an administrator use it, and how the React, Node.js, Express, and MongoDB layers work together.</p>
+    <div class="cover-grid"><div class="cover-card"><strong>19 pages</strong><span>Architecture, features, flows, APIs, setup, and roadmap</span></div><div class="cover-card"><strong>2026</strong><span>Prepared from the project repository</span></div></div>
+    <div class="footer"><span>Nexora E-Commerce Platform</span><span>Prepared for project review</span></div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">01 · Overview</div><h1>Executive Summary</h1><div class="rule"></div>
+    <p class="lead">Nexora is a full-stack online-store project. It gives customers a simple way to discover products, build a cart, place an order, and track that order. It also provides an administrator area for product and order management.</p>
+    <div class="three"><div class="metric"><strong>React</strong>Interactive storefront</div><div class="metric"><strong>Express</strong>API service layer</div><div class="metric"><strong>MongoDB</strong>Product and user data</div></div>
+    <h2>What the project demonstrates</h2><div class="two"><div class="card"><h3>Customer value</h3><p>Search, category filtering, sorting, product detail, quantity controls, checkout, profile access, and order history are combined into one responsive storefront.</p></div><div class="card"><h3>Business value</h3><p>The administrator experience supports adding or removing products, reviewing orders, and moving orders through operational statuses.</p></div></div>
+    <div class="figure"><img src="assets/overview.svg" alt="Nexora overview diagram"><div class="caption">Figure 1. Nexora connects shoppers, administrators, a web client, and an API/data layer.</div></div>
+    <div class="note"><p><strong>Beginner note:</strong> “Full stack” means the visible website (frontend) and the server/database work are both included in the same project.</p></div>
+    <div class="footer"><span>Nexora Industry Report</span><span>2</span></div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">02 · Context</div><h1>Problem Statement and Project Scope</h1><div class="rule"></div>
+    <p>Online shopping involves more than displaying product cards. A useful store must help people find suitable products, maintain accurate quantities, present a clear checkout total, and give staff a way to manage the catalogue. Nexora models these essentials in an approachable learning project.</p>
+    <h2>In scope</h2><div class="two"><div class="card"><h3>Storefront</h3><ul><li>Product browsing and search</li><li>Categories and price sorting</li><li>Product detail and live stock display</li><li>Cart, totals, delivery charge, checkout</li></ul></div><div class="card"><h3>Account and operations</h3><ul><li>Signup, login, OTP email verification</li><li>Customer profile and purchase history</li><li>Role-aware admin route protection</li><li>Product and order controls for admins</li></ul></div></div>
+    <h2>Key stakeholders</h2><table><tr><th>Stakeholder</th><th>Need</th><th>Nexora response</th></tr><tr><td>Shopper</td><td>Fast, clear purchase journey</td><td>Filters, product pages, cart and order list</td></tr><tr><td>Store administrator</td><td>Control products and order progress</td><td>Admin Studio and status controls</td></tr><tr><td>Developer</td><td>Easy-to-follow architecture</td><td>Routes, controllers, models, and reusable React UI</td></tr></table>
+    <div class="note"><p><strong>Boundary:</strong> payment-gateway integration and a persisted order model are future improvements, not completed production features in the current repository.</p></div>
+    <div class="footer"><span>Nexora Industry Report</span><span>3</span></div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">03 · Overview</div><h1>Product Overview</h1><div class="rule"></div>
+    <p>Nexora has two connected experiences. The shop is designed for everyday customers. The “Admin Studio” is a protected view intended for people who maintain inventory and monitor transactions.</p>
+    <div class="figure"><img src="assets/overview.svg" alt="Product overview"><div class="caption">Figure 2. High-level product overview: two user roles share the same application foundation.</div></div>
+    <div class="two"><div class="card"><h3>Customer storefront</h3><p>The home page loads products from the API when available and merges them with saved or demonstration products for a resilient presentation. Visitors can search, filter, sort, view, and add products to the cart.</p></div><div class="card"><h3>Admin Studio</h3><p>An eligible role is sent to a dashboard-like profile screen. It includes product creation, product removal, simple inventory listing, totals, and the ability to update order status.</p></div></div>
+    <h2>Design principles visible in the code</h2><ul><li><strong>Fallback-friendly:</strong> saved local data and demo data keep the UI useful if the API is temporarily unavailable.</li><li><strong>Reusable:</strong> header, footer, route protection, context state, and an Axios instance prevent repeated setup code.</li><li><strong>Responsive:</strong> CSS supports shopping on desktop, tablet, and mobile widths.</li></ul>
+    <div class="footer"><span>Nexora Industry Report</span><span>4</span></div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">04 · Key Features</div><h1>Key Features</h1><div class="rule"></div>
+    <p>Features are grouped below by the problem they solve. This makes it easier for a beginner to relate a screen action to the system behavior behind it.</p>
+    <div class="figure"><img src="assets/features.svg" alt="Key feature map"><div class="caption">Figure 3. Feature map showing the main shopper, account, and administrator capabilities.</div></div>
+    <div class="two"><div class="card"><h3>Catalogue discovery</h3><p>Search, category filtering, featured sorting, low-to-high price sorting, high-to-low price sorting, cards, and individual product pages help a shopper narrow a selection.</p></div><div class="card"><h3>Cart and fulfilment</h3><p>Quantity buttons protect against exceeding stock. Checkout calculates subtotal, delivery, and total, creates an order record in browser storage, and deducts available stock.</p></div><div class="card"><h3>Identity and access</h3><p>Signup hashes passwords on the server. Email OTP verification is required before server login. Role-aware navigation and <code>RequireAdmin</code> protect the administration route.</p></div><div class="card"><h3>Store administration</h3><p>Admins can create or delete products, review stock, view simple performance metrics, and update order status from Processing to Delivered or Cancelled.</p></div></div>
+    <div class="footer"><span>Nexora Industry Report</span><span>5</span></div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">05 · Technology</div><h1>Technology Stack</h1><div class="rule"></div>
+    <table><tr><th>Layer</th><th>Technology</th><th>Why it is used</th></tr><tr><td>Frontend</td><td>React 19, Vite, React Router</td><td>Builds components quickly and maps URLs to screens without full-page reloads.</td></tr><tr><td>HTTP client</td><td>Axios</td><td>Provides a central API client with a configurable base URL and timeout.</td></tr><tr><td>Notifications</td><td>React Toastify</td><td>Shows feedback for login, cart, verification, and product actions.</td></tr><tr><td>Backend</td><td>Node.js and Express 5</td><td>Receives browser requests and connects route paths to controller functions.</td></tr><tr><td>Database</td><td>MongoDB with Mongoose</td><td>Stores document-style records for users, products, categories, and carts.</td></tr><tr><td>Security/email</td><td>bcryptjs, Nodemailer</td><td>Hashes passwords and sends email verification one-time passwords.</td></tr></table>
+    <div class="two"><div class="card"><h3>Why this stack fits the project</h3><p>JavaScript is used across the browser and server, which lowers the learning curve. Vite provides fast local development, while Express keeps API endpoints readable.</p></div><div class="card"><h3>Important terminology</h3><p><strong>Dependency:</strong> a reusable package. <strong>API:</strong> a contract for browser/server communication. <strong>Model:</strong> a Mongoose description of data fields.</p></div></div>
+    <div class="code">Frontend development: npm run dev
+Backend development:  npm run dev
+Production client:   npm run build</div>
+    <div class="footer"><span>Nexora Industry Report</span><span>6</span></div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">06 · Architecture</div><h1>System Architecture</h1><div class="rule"></div>
+    <p>The architecture separates the user interface from business/data code. A browser action calls an API endpoint. Express chooses a controller, and the controller reads or writes a Mongoose model in MongoDB.</p>
+    <div class="figure"><img src="assets/architecture.svg" alt="System architecture"><div class="caption">Figure 4. Request path from React user interface to Express routes, controllers, models, and MongoDB.</div></div>
+    <div class="two"><div class="card"><h3>Frontend responsibility</h3><p>React pages collect user input and render data. <code>UserContextProvider</code> owns cross-screen client state for a user, cart, orders, and stock levels.</p></div><div class="card"><h3>Backend responsibility</h3><p>The server exposes routes under <code>/api</code>. It uses JSON parsing, CORS, and request logging before it hands a request to a route module.</p></div></div>
+    <div class="note"><p><strong>Separation of concerns:</strong> the screen does not contain database queries. Keeping routing, controller logic, and schemas separate makes changes safer and easier to locate.</p></div>
+    <div class="footer"><span>Nexora Industry Report</span><span>7</span></div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">07 · Codebase</div><h1>Repository and Code Organization</h1><div class="rule"></div>
+    <div class="code">Nexora-E-com/
+├── Nexora-Frontend/       React + Vite application
+│   ├── src/pages/         Route-level screens
+│   ├── src/components/    Header, footer, route guard
+│   ├── src/context/       Shared user/cart/order state
+│   ├── src/api/           Axios configuration
+│   └── src/utils/         Browser storage helpers
+└── Nexora-Backend/        Express + Mongoose application
+    ├── routes/            Endpoint definitions
+    ├── controllers/       Request handling logic
+    ├── models/            Mongoose schemas
+    └── configs/           MongoDB connection</div>
+    <h2>Frontend route map</h2><table><tr><th>URL</th><th>Screen</th><th>Purpose</th></tr><tr><td>/</td><td>Home</td><td>Catalogue, search, filters, product cards</td></tr><tr><td>/product/:id</td><td>SingleProduct</td><td>Product detail and add-to-cart action</td></tr><tr><td>/cart · /orders</td><td>Cart · Order</td><td>Checkout and purchase history</td></tr><tr><td>/login · /signup · /verify-email</td><td>Account screens</td><td>Access and email verification</td></tr><tr><td>/admin</td><td>Protected Profile mode</td><td>Admin Studio only for admin role</td></tr></table>
+    <div class="note"><p><strong>Beginner note:</strong> a route is an address. On the frontend it decides which page is shown; on the backend it decides which operation runs.</p></div>
+    <div class="footer"><span>Nexora Industry Report</span><span>8</span></div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">08 · User Flow</div><h1>Customer User Flow</h1><div class="rule"></div>
+    <p>The primary flow focuses on minimizing the distance between discovering a product and placing an order. Feedback toasts and clear navigation reduce uncertainty at each decision.</p>
+    <div class="figure"><img src="assets/customer-flow.svg" alt="Customer journey flow"><div class="caption">Figure 5. Customer journey from browsing to order tracking.</div></div>
+    <div class="timeline"><b>1</b><div><strong>Discover</strong> — open the home catalogue, search by title, select a category, or change sorting.</div><b>2</b><div><strong>Evaluate</strong> — open a product page to see description, price, stock, delivery, and checkout signals.</div><b>3</b><div><strong>Build cart</strong> — add an item, adjust quantity, remove an item, and review the order summary.</div><b>4</b><div><strong>Checkout</strong> — submit the cart. Nexora creates an order and reduces stock without allowing negative quantities.</div><b>5</b><div><strong>Track</strong> — visit Orders to view status, date, total, and item history.</div></div>
+    <div class="footer"><span>Nexora Industry Report</span><span>9</span></div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">09 · Shopping</div><h1>Catalogue and Product Detail Experience</h1><div class="rule"></div>
+    <p>The <code>Home</code> page is the discovery hub. It tries to load up to 24 API products, then uses local and demo data when necessary. Duplicate products are removed before the grid is displayed.</p>
+    <div class="figure"><img src="assets/catalogue.svg" alt="Catalogue interface diagram"><div class="caption">Figure 6. Product discovery model: controls affect the visible catalogue, then the selected product opens a detail view.</div></div>
+    <div class="two"><div class="card"><h3>Search and filters</h3><p>Search checks a product title. Category values are derived from current products. The sorting selector compares price or rating so results remain understandable and immediate.</p></div><div class="card"><h3>Product detail</h3><p>The detail route uses an ID from the URL. It can use state passed from the product card, request a missing product from the API, or show a demo fallback.</p></div></div>
+    <div class="note"><p><strong>Stock visibility:</strong> both the product card and detail screen call <code>getProductStock</code>, keeping the displayed availability aligned with cart/checkout state.</p></div>
+    <div class="footer"><span>Nexora Industry Report</span><span>10</span></div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">10 · Checkout</div><h1>Cart, Checkout, and Inventory Flow</h1><div class="rule"></div>
+    <p>The cart is held in the shared React context and persisted to browser storage. Each item includes an ID, title, price, image, category, stock value, and chosen quantity.</p>
+    <div class="figure"><img src="assets/inventory-flow.svg" alt="Checkout and inventory flow"><div class="caption">Figure 7. Checkout calculates an order, stores it locally, reduces stock, and updates the server for database product IDs.</div></div>
+    <h2>Checkout behavior</h2><table><tr><th>Step</th><th>Implementation behavior</th></tr><tr><td>Quantity increase</td><td>Clamped to the current available stock; users cannot select more than is available.</td></tr><tr><td>Summary</td><td>Subtotal is item price × quantity. Delivery is free over Rs. 2,000 or when the cart is empty; otherwise it is Rs. 99.</td></tr><tr><td>Order creation</td><td>An ID, date, status “Processing”, customer, items, products, and total are created.</td></tr><tr><td>Stock update</td><td>New stock is calculated with a minimum of zero, saved locally, and patched to the API for MongoDB-shaped IDs.</td></tr></table>
+    <div class="footer"><span>Nexora Industry Report</span><span>11</span></div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">11 · Identity</div><h1>Authentication and Email Verification</h1><div class="rule"></div>
+    <p>Nexora supports registration, login, role selection, and email verification. The backend hashes the submitted password using bcrypt before it creates the user record. It does not return that password in the successful login response.</p>
+    <div class="figure"><img src="assets/auth-flow.svg" alt="Authentication flow"><div class="caption">Figure 8. Registration and six-digit OTP verification before a server-side login.</div></div>
+    <div class="two"><div class="card"><h3>Server flow</h3><p>The server creates a six-digit OTP, temporarily keeps it in an in-memory map for ten minutes, sends it through configured SMTP, and marks <code>verified: true</code> when the correct code returns.</p></div><div class="card"><h3>Client flow</h3><p>The client saves a local account record, requests an OTP, and sends the code to the verification endpoint. Local storage supports the learning/demo experience when display state must survive a refresh.</p></div></div>
+    <div class="note"><p><strong>Production consideration:</strong> OTP storage should move from server memory to a shared database/cache and rate limiting should be added before a multi-server deployment.</p></div>
+    <div class="footer"><span>Nexora Industry Report</span><span>12</span></div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">12 · User Flow</div><h1>Administrator User Flow</h1><div class="rule"></div>
+    <p>Administrators use the same application but have a higher-privilege role. The <code>RequireAdmin</code> component prevents a non-admin user from opening the administration route.</p>
+    <div class="figure"><img src="assets/admin-flow.svg" alt="Administrator flow"><div class="caption">Figure 9. Admin flow from verified account to inventory and order operations.</div></div>
+    <div class="two"><div class="card"><h3>Product management</h3><p>The admin form collects title, price, category, image URL, and description. It posts to the product creation API, then saves a local copy for UI continuity if the server is unavailable.</p></div><div class="card"><h3>Order operations</h3><p>Admins can see order number, customer, date, status, and total. They can move an order through Processing, Packed, Shipped, Delivered, or Cancelled in the current client-state implementation.</p></div></div>
+    <div class="note"><p><strong>Access model:</strong> the signup screen uses an invite-code check for the demo. A production system should enforce authorisation on every protected backend endpoint, not just in the browser.</p></div>
+    <div class="footer"><span>Nexora Industry Report</span><span>13</span></div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">13 · Frontend</div><h1>Frontend Design and State Management</h1><div class="rule"></div>
+    <p>The React client is divided into route pages, reusable components, an API helper, storage helpers, and a shared context provider. This avoids passing the cart or user through many nested components.</p>
+    <div class="figure"><img src="assets/frontend-state.svg" alt="Frontend state diagram"><div class="caption">Figure 10. Frontend components read and update shared context, which persists selected state in local storage.</div></div>
+    <table><tr><th>Part</th><th>Role in the application</th></tr><tr><td>App.jsx</td><td>Defines routes, shared header/footer, admin protection, and notifications.</td></tr><tr><td>UserContextProvider</td><td>Holds user, cart, orders, stock levels, and actions such as checkout.</td></tr><tr><td>authStorage.js</td><td>Reads and writes browser data for accounts, verification, local products, and stock.</td></tr><tr><td>ApiInstance.js</td><td>Creates one Axios client with an environment-configurable API base URL.</td></tr></table>
+    <div class="footer"><span>Nexora Industry Report</span><span>14</span></div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">14 · Backend</div><h1>Backend API Design</h1><div class="rule"></div>
+    <p>The Express server mounts a single router at <code>/api</code>. That router groups endpoints by domain, which helps a developer find the right location for a new feature.</p>
+    <table><tr><th>Module</th><th>Base path</th><th>Examples</th></tr><tr><td>User</td><td>/api/user</td><td>register, login, send-verification-otp, verify-email-otp, profile</td></tr><tr><td>Product</td><td>/api/product</td><td>create, getallproducts, getoneproduct/:id, update-product/:id, delete-product/:id</td></tr><tr><td>Category</td><td>/api/category</td><td>create, list, update, delete category records</td></tr><tr><td>Cart</td><td>/api/cart</td><td>Route group is present and ready for future persistent cart endpoints</td></tr><tr><td>Admin</td><td>/api/admin</td><td>Route group is present for future server-side admin operations</td></tr></table>
+    <div class="two"><div class="card"><h3>Controller pattern</h3><p>Controllers read request input, call a model method such as <code>find</code> or <code>findByIdAndUpdate</code>, and send a JSON response with a status code.</p></div><div class="card"><h3>Useful middleware</h3><p><code>body-parser.json()</code> reads JSON bodies, <code>cors()</code> allows browser cross-origin calls, and <code>morgan("dev")</code> logs requests in development.</p></div></div>
+    <div class="footer"><span>Nexora Industry Report</span><span>15</span></div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">15 · Data</div><h1>Data Model Overview</h1><div class="rule"></div>
+    <p>Mongoose models define the fields that MongoDB documents are expected to contain. The project includes models for users, products, categories, carts, and admins.</p>
+    <div class="figure"><img src="assets/data-model.svg" alt="Data model diagram"><div class="caption">Figure 11. Main data objects and the user/product references available to a cart record.</div></div>
+    <table><tr><th>Model</th><th>Important fields</th><th>Purpose</th></tr><tr><td>User</td><td>name, email, password, role, verified, timestamps</td><td>Account identity and email-verification state</td></tr><tr><td>Product</td><td>title, price, description, image, category, stock, rating</td><td>Catalogue items and availability</td></tr><tr><td>Cart</td><td>userId, productId, qty, timestamps</td><td>Schema foundation for a future database-backed cart</td></tr><tr><td>Category</td><td>Name-related category data</td><td>Organises the product catalogue</td></tr></table>
+    <div class="note"><p><strong>Current design note:</strong> browser local storage currently owns the active cart and order history. The server-side Cart model is present but its route has not been implemented yet.</p></div>
+    <div class="footer"><span>Nexora Industry Report</span><span>16</span></div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">16 · Delivery</div><h1>Local Setup and Deployment Readiness</h1><div class="rule"></div>
+    <p>The repository is split into <code>Nexora-Frontend</code> and <code>Nexora-Backend</code>. Each has its own package manifest and development command.</p>
+    <div class="two"><div class="card"><h3>Prerequisites</h3><ul><li>Node.js 18 or newer and npm</li><li>A MongoDB connection string</li><li>SMTP details for OTP emails</li><li>Two terminals for local frontend/backend development</li></ul></div><div class="card"><h3>Environment variables</h3><ul><li><code>PORT</code>, <code>MONGODB_URL</code></li><li><code>SMTP_HOST</code>, <code>SMTP_PORT</code></li><li><code>SMTP_USER</code>, <code>SMTP_PASS</code>, <code>SMTP_FROM</code></li><li>Optional client <code>VITE_API_URL</code></li></ul></div></div>
+    <h2>Recommended local sequence</h2><div class="timeline"><b>1</b><div>Install dependencies inside each project folder with <code>npm install</code>.</div><b>2</b><div>Create the backend <code>.env</code> with database and SMTP settings.</div><b>3</b><div>Run the backend with <code>npm run dev</code>; it serves API routes on port 8081 unless overridden.</div><b>4</b><div>Run the frontend with <code>npm run dev</code>; configure <code>VITE_API_URL</code> if it should call a different API.</div><b>5</b><div>Run <code>npm run build</code> in the frontend before production sharing.</div></div>
+    <div class="footer"><span>Nexora Industry Report</span><span>17</span></div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">17 · Quality</div><h1>Quality, Security, and Testing Considerations</h1><div class="rule"></div>
+    <p>The project already includes several good building blocks: password hashing, verified-email gating, protected client routing, stock limits, API timeouts, and user-facing error messages. A production release needs additional controls.</p>
+    <table><tr><th>Area</th><th>Current evidence</th><th>Recommended next step</th></tr><tr><td>Passwords</td><td>bcrypt hashes registered passwords</td><td>Add password rules, reset flow, and secure session/JWT handling.</td></tr><tr><td>Authorisation</td><td>Admin route protected in React</td><td>Validate roles and tokens in Express before every protected data mutation.</td></tr><tr><td>OTP</td><td>Six-digit code, 10-minute expiry, SMTP delivery</td><td>Persist codes securely, add rate limits, and avoid in-memory-only storage.</td></tr><tr><td>Orders</td><td>Client-side order list and status updates</td><td>Create an Order model and transactional stock/order endpoint.</td></tr><tr><td>Testing</td><td>Build and lint scripts on the client</td><td>Add unit, integration, and end-to-end checkout tests.</td></tr></table>
+    <div class="note"><p><strong>Testing priority:</strong> start with checkout stock calculations, login/verification failures, API product CRUD, and the admin route guard. These flows carry the highest risk of confusing users or incorrect data.</p></div>
+    <div class="footer"><span>Nexora Industry Report</span><span>18</span></div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">18 · Roadmap</div><h1>Limitations and Recommended Roadmap</h1><div class="rule"></div>
+    <p>Nexora is a strong demonstration of a modern commerce workflow. The following phased plan turns its learning-oriented client state and API foundations into a more production-ready platform.</p>
+    <div class="three"><div class="card"><h3>Phase 1</h3><p><strong>Persist transactions.</strong><br>Create Order endpoints and connect the Cart model. Move checkout and status changes from browser-only state to server-controlled records.</p></div><div class="card"><h3>Phase 2</h3><p><strong>Harden access.</strong><br>Introduce JWT/session auth, backend role middleware, rate limits, validation, and secure OTP persistence.</p></div><div class="card"><h3>Phase 3</h3><p><strong>Scale experience.</strong><br>Add payment integration, image uploads, pagination, advanced filters, analytics, and automated tests.</p></div></div>
+    <h2>Priority rationale</h2><p>Persisting orders first protects business history and makes stock changes auditable. Server-side access control comes next because frontend-only protection can be bypassed by direct API calls. After these foundations are reliable, product improvements such as payments and richer discovery become safer to add.</p>
+    <div class="figure"><img src="assets/roadmap.svg" alt="Roadmap"><div class="caption">Figure 12. Recommended progression from working prototype to production-ready commerce platform.</div></div>
+    <div class="footer"><span>Nexora Industry Report</span><span>19</span></div>
+  </section>
+
+  <section class="page">
+    <div class="kicker">19 · Conclusion</div><h1>Conclusion and Quick Reference</h1><div class="rule"></div>
+    <p>Nexora successfully brings together a polished e-commerce interface and a clean backend foundation. Its strongest learning value is the visible link between a user action—such as “Add to cart” or “Verify email”—and the React state, API, controller, and database work that support it.</p>
+    <div class="two"><div class="card"><h3>Project strengths</h3><ul><li>Clear customer and admin workflows</li><li>Responsive, reusable frontend structure</li><li>Practical API/controller/model separation</li><li>Cart stock protection and feedback messages</li><li>Email-verification and role concepts</li></ul></div><div class="card"><h3>Best next implementation</h3><ul><li>Persist carts and orders in MongoDB</li><li>Enforce backend authentication and roles</li><li>Connect a payment provider</li><li>Add test coverage around checkout</li><li>Add image upload and pagination</li></ul></div></div>
+    <h2>Key repository references</h2><table><tr><th>Need to understand</th><th>Start with</th></tr><tr><td>Application routes</td><td>Nexora-Frontend/src/App.jsx</td></tr><tr><td>Cart and stock rules</td><td>Nexora-Frontend/src/context/user/UserContextProvider.jsx</td></tr><tr><td>API endpoints</td><td>Nexora-Backend/routes/index.js and feature route files</td></tr><tr><td>Server behavior</td><td>Nexora-Backend/index.js and controllers/</td></tr><tr><td>Data shape</td><td>Nexora-Backend/models/</td></tr></table>
+    <div class="note"><p><strong>Editable deliverables:</strong> this HTML source can be edited in Word or a browser before re-exporting. The accompanying DOCX is the recommended master copy; the PDF is the submission-ready version.</p></div>
+    <div class="footer"><span>Nexora Industry Report</span><span>20</span></div>
+  </section>
+</body>
+</html>
